@@ -1,0 +1,7 @@
+# The inference CLI uses explicit paths so every input is auditable.
+checkpoint: path/to/vam.pt
+sequence: path/to/sequence_features.tsv
+expression: path/to/scgpt_embeddings.tsv
+metabolite: path/to/metabolite_features.tsv
+output: predictions.npz
+batch_size: 256

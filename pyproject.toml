@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vam-aging"
+version = "0.1.0"
+description = "Multimodal dynamical foundation model for human aging"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "PyYAML>=6.0",
+  "scipy>=1.10",
+  "torch>=2.0",
+]
+
+[project.optional-dependencies]
+embeddings = ["fair-esm", "scanpy", "scgpt"]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+vam = "vam.cli:main"
+vam-dnb = "vam.dnb.cli:main"
+vam-esm2 = "vam.embeddings.esm2:main"
+vam-scgpt = "vam.embeddings.scgpt:main"
+vam-prepare-scgpt = "vam.data.protein:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
